@@ -22,7 +22,7 @@ npm start
 ## how to package
 
 ```
-npx electron-forge import | npm run make
+npm run make
 ```
 
 ## how to execute
