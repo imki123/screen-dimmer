@@ -6,7 +6,10 @@
   "private": true,
   "main": "main.js",
   "scripts": {
-    "start": "concurrently \"react-scripts start\" \"electron-forge start\"",
+    "start:react": "react-scripts --openssl-legacy-provider start",
+    "start:electron": "electron .",
+    "start:electron-wait-on": "wait-on http://localhost:3000 | npm run start:electron",
+    "start": "concurrently \"npm run start:react\" \"npm run start:electron-wait-on\"",
     "build": "react-scripts build",
     "test-react": "react-scripts test",
     "test-electron": "echo \"Error: no test specified\" && exit 1",
@@ -30,7 +33,9 @@
     "@electron-forge/maker-rpm": "6.0.0-beta.63",
     "@electron-forge/maker-squirrel": "6.0.0-beta.63",
     "@electron-forge/maker-zip": "6.0.0-beta.63",
-    "electron": "18.2.0"
+    "concurrently": "7.1.0",
+    "electron": "18.2.0",
+    "wait-on": "6.0.1"
   },
   "eslintConfig": {
     "extends": [

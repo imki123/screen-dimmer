@@ -6,7 +6,7 @@ const path = require("path")
 
 const createWindow = () => {
   // Create the browser window.
-  const mainWindow = new BrowserWindow({
+  const win = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
@@ -15,10 +15,16 @@ const createWindow = () => {
   })
 
   // and load the index.html of the app.
-  mainWindow.loadFile(path.join(__dirname, "public/index.html"))
+  win.loadURL("http://localhost:3000")
+  /* if (process.env.mode === "dev") {
+    win.loadURL("http://localhost:3000")
+  } else {
+    win.loadURL(`file://${path.join(__dirname, "build/index.html")}`)
+    win.loadFile(`${path.join(__dirname, "build/index.html")}`)
+  } */
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools()
+  win.webContents.openDevTools()
 }
 
 // This method will be called when Electron has finished
@@ -26,7 +32,7 @@ const createWindow = () => {
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
   createWindow()
-
+  console.log("일렉트론!")
   app.on("activate", () => {
     // On macOS it's common to re-create a window in the app when the
     // dock icon is clicked and there are no other windows open.
