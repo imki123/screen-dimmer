@@ -1,0 +1,11 @@
+5/9 월 
+- 일렉트론 공부 시작
+- 일렉트론 세팅 package.json, .gitignore, readme.md
+- 기본 파일 생성 main.js, preload.js, renderer.js
+- github 업로드
+- 패키지 생성(win, mac)
+
+5/10 화
+- 일렉트론 프로세스 정독...
+- 리액트 접목
+- 
